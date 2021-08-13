@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.is;
 
 // 3 - Classe
 public class Pet {
@@ -18,7 +19,6 @@ public class Pet {
 
     // 3.2 - Métodos e Funções
     public String lerJson(String caminhoJson) throws IOException {
-
         return new String(Files.readAllBytes(Paths.get(caminhoJson)));
     }
 
@@ -40,6 +40,8 @@ public class Pet {
         .then() // Então
                 .log().all()
                 .statusCode(200)
+                .body("name", is("Lindomar"))
+                .body("status", is("available"))
         ;
     }
 }
