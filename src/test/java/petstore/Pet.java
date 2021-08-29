@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.contains;
 
 // 3 - Classe
@@ -48,24 +48,6 @@ public class Pet {
         ;
     }
 
-    /*
-    public void consultarPet(){
-        String petId = "1982030439";
-
-        given()
-                .contentType("application/json")
-                .log().all()
-        .when()
-                .get(uri + "/" + petId)
-        .then()
-                .log().all()
-                .statusCode(200)
-                .body("name", is("Lindomar"))
-                .body("category.name", is("QWERTY789654"))
-                .body("status", is("available"))
-        ;
-    }
-    */
 
     @Test(priority = 2)
     public void consultarPet() {
@@ -122,6 +104,22 @@ public class Pet {
                 .body("code", is(200))
                 .body("type", is("unknown"))
                 .body("message", is(petId))
+        ;
+    }
+
+    @Test //(priority = 5)
+    public void consultarPetPorStatus(){
+        String status = "available";
+
+        given()  // Dado que
+            .contentType("application/json")
+            .log().all()
+        .when() // Quando
+            .get(uri + "/findByStatus?status=" +status)
+        .then() // Então
+            .log().all()
+            .statusCode(200)
+            .body("name[]", everyItem(equalTo("Lindomar")))
         ;
     }
 }
