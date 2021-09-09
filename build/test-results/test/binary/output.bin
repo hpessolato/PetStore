@@ -11,17 +11,17 @@
 Multiparts:		<none>
 Body:
 {
-    "id": 0,
-    "username": "lindomar",
-    "firstName": "lindomar1",
-    "lastName": "lindomar2",
-#    "email": "lindomar@teste.com",
-    "password": "lindomar",
-    "phone": "11987654321",
-    "userStatus": 0
+    "firstName": " lindomar1",
+    "lastName": " lindomar2",
+    "password": "  lindomar",
+    "userStatus": " 0",
+    "phone": " 11987654321",
+    "id": "2001",
+$    "email": " lindomar@teste.com",
+    "username": " lindomar"
 }
 HTTP/1.1 200 OK
-%Date: Thu, 09 Sep 2021 00:33:11 GMT
+%Date: Thu, 09 Sep 2021 02:45:38 GMT
  Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -33,6 +33,44 @@
 {
     "code": 200,
     "type": "unknown",
-%    "message": "9223372000666117324"
+    "message": "2001"
 }
-#O userId Ã© 9223372000666117324
+O userId Ã© 2001
+Request method:	POST
+2Request URI:	https://petstore.swagger.io/v2/user
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+2				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+     "firstName": " lindomara1",
+    "lastName": " lindomara2",
+    "password": "  lindomara",
+    "userStatus": " 0",
+    "phone": " 11987654320",
+    "id": "2002",
+%    "email": " lindomara@teste.com",
+    "username": " lindomara"
+}
+HTTP/1.1 200 OK
+%Date: Thu, 09 Sep 2021 02:45:39 GMT
+ Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+ Access-Control-Allow-Origin: *
+6Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+DAccess-Control-Allow-Headers: Content-Type, api_key, Authorization
+ Server: Jetty(9.2.9.v20150224)
+
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "2002"
+}
+O userId Ã© 2002
